@@ -1006,18 +1006,24 @@ footer a:hover{
 
   let deliveryOk = false;
 
+  // UK postcode validator (practical + solid for websites)
+  const UK_POSTCODE_REGEX = /^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/i;
+
   function cleanPostcode(pc){
     return (pc || "").toUpperCase().replace(/\s+/g, "").trim();
   }
 
-  function outwardCode(pc){
-    // Outward code is the first part before the space — this approximates it without relying on spaces
-    // e.g. NG97AD -> NG9
+  function formatPostcode(pc){
     const cleaned = cleanPostcode(pc);
-    // Common UK outward patterns vary; this is a practical approximation:
-    // take first 3 or 4 chars until a digit boundary. We'll do a simple regex.
-    const match = cleaned.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)/);
-    return match ? match[1].replace(/[A-Z]$/, "") : "";
+    if (cleaned.length < 5) return "";
+    // insert a space before the last 3 chars: NG97AD -> NG9 7AD, NG101AA -> NG10 1AA
+    return cleaned.slice(0, -3) + " " + cleaned.slice(-3);
+  }
+
+  function outwardCode(pc){
+    const formatted = formatPostcode(pc);
+    const m = formatted.match(UK_POSTCODE_REGEX);
+    return m ? m[1].toUpperCase() : "";
   }
 
   function setCheckUI(ok, message){
@@ -1036,7 +1042,7 @@ footer a:hover{
     const phone = data.get("phone") || "";
     const items = data.get("items") || "";
     const notes = data.get("notes") || "";
-    const postcode = postcodeEl.value || "";
+    const postcode = formatPostcode(postcodeEl.value || "");
 
     const msg =
 `Hi ${SHOP_NAME}! 🐾
@@ -1058,26 +1064,28 @@ Can you confirm delivery + total please?`;
 
   function updateSendLink(){
     const msg = buildMessage();
-    // FB doesn't support a perfect prefill to a page inbox on all devices,
-    // but this works reasonably by opening Messenger share dialog with text.
-    const shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(FB_PAGE) +
-                     "&quote=" + encodeURIComponent(msg);
+    const shareUrl =
+      "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(FB_PAGE) +
+      "&quote=" + encodeURIComponent(msg);
     sendOrderBtn.href = shareUrl;
   }
 
   checkBtn.addEventListener("click", () => {
-    const pc = postcodeEl.value;
-    const out = outwardCode(pc);
+    const pcRaw = postcodeEl.value || "";
+    const pc = formatPostcode(pcRaw);
 
-    if(!pc || pc.trim().length < 5){
+    if(!pc){
       setCheckUI(false, "Enter a valid postcode to check delivery.");
       return;
     }
 
-    if(!out){
-      setCheckUI(false, "That postcode format looks off — double-check it.");
+    // validate properly
+    if(!UK_POSTCODE_REGEX.test(pc)){
+      setCheckUI(false, "That postcode format looks off — double-check it (e.g. NG9 7AD).");
       return;
     }
+
+    const out = outwardCode(pc);
 
     const ok = ALLOWED_OUTCODES.includes(out);
     if(ok){
@@ -1089,9 +1097,15 @@ Can you confirm delivery + total please?`;
     }
   });
 
-  // Keep the message link updated as they type
+  // Keep the message link updated as they type (only after delivery check passes)
   orderForm.addEventListener("input", () => {
     if(deliveryOk) updateSendLink();
+  });
+
+  // Optional: auto-format the postcode field as they leave it
+  postcodeEl.addEventListener("blur", () => {
+    const formatted = formatPostcode(postcodeEl.value);
+    if(formatted) postcodeEl.value = formatted;
   });
 </script>
     </footer>
