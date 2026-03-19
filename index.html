@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Pet Box | For Dogs. For Cats. For Chaos. (Stapleford)</title>
-  <meta name="description" content="The Pet Box in Stapleford — for dogs, for cats, for chaos. Dog & cat food (dry, wet & raw), pick & mix treats, toys and accessories. Friendly local advice. Tue–Sat 10–4. Local delivery within 5 miles." />
+  <title>The Pet Box | Independent Pet Shop in Stapleford</title>
+  <meta name="description" content="The Pet Box is a friendly independent family-run pet shop in Stapleford. We stock dog and cat food, raw food, natural treats, toys, accessories and reptile food to order. Open Tuesday to Saturday, 09:30 to 16:30." />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -19,40 +19,36 @@
     }
 
     * { box-sizing: border-box; }
-    
-    body{ 
+
+    body{
       margin: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      color: #1e1b4b; 
+      color: #1e1b4b;
       overflow-x: hidden;
       background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #ddd6fe 100%);
     }
 
-    /* Floating paws background */
     .bg-paws {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       pointer-events: none;
       z-index: 0;
       opacity: 0.15;
     }
-    
+
     .floating-paw {
       position: absolute;
       font-size: 2rem;
       animation: float 15s infinite ease-in-out;
     }
-    
+
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       25% { transform: translateY(-30px) rotate(10deg); }
       50% { transform: translateY(-15px) rotate(-5deg); }
       75% { transform: translateY(-40px) rotate(8deg); }
     }
-    
+
     .floating-paw:nth-child(1) { left: 10%; top: 10%; animation-delay: 0s; color: var(--pb-purple); }
     .floating-paw:nth-child(2) { left: 80%; top: 20%; animation-delay: 2s; color: var(--pb-pink); }
     .floating-paw:nth-child(3) { left: 15%; top: 60%; animation-delay: 4s; color: var(--pb-teal); }
@@ -63,44 +59,45 @@
 
     .content-wrapper { position: relative; z-index: 1; }
 
-    /* NAV */
-    .navbar{ 
+    .navbar{
       background: rgba(255, 255, 255, 0.95) !important;
       backdrop-filter: blur(20px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
-    
-    .brand-wrap{ 
-      display: flex; 
-      align-items: center; 
+
+    .brand-wrap{
+      display: flex;
+      align-items: center;
       gap: 1rem;
       transition: transform 0.3s ease;
+      text-decoration: none;
     }
-    
+
     .brand-wrap:hover {
       transform: scale(1.02) rotate(-1deg);
     }
-    
+
     .brand-mark{
       height: 85px;
       width: auto;
       filter: drop-shadow(0 4px 10px rgba(107, 70, 193, 0.2));
       transition: transform 0.3s ease;
     }
-    
+
     .brand-mark:hover {
       transform: rotate(5deg) scale(1.05);
     }
-    
+
     @media (max-width: 576px){
       .brand-mark{ height: 65px; }
     }
-    
+
     .brand-name{
       line-height: 1.1;
       letter-spacing: -0.02em;
+      color: #1e1b4b;
     }
-    
+
     .brand-name small{
       display: block;
       font-weight: 700;
@@ -124,24 +121,23 @@
       box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
       animation: pulse 2s infinite;
     }
-    
+
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
 
-    /* HERO */
     .hero{
       position: relative;
       padding: 5rem 0 4rem;
-      background: 
+      background:
         radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.3), transparent 40%),
         radial-gradient(circle at 80% 30%, rgba(236, 72, 153, 0.25), transparent 45%),
         radial-gradient(circle at 40% 80%, rgba(107, 70, 193, 0.2), transparent 50%),
         linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
       overflow: hidden;
     }
-    
+
     .hero::before {
       content: "🐾";
       position: absolute;
@@ -152,7 +148,7 @@
       animation: rotate 20s linear infinite;
       pointer-events: none;
     }
-    
+
     @keyframes rotate {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -168,7 +164,7 @@
       background-clip: text;
       animation: gradientShift 3s ease infinite;
     }
-    
+
     @keyframes gradientShift {
       0%, 100% { filter: hue-rotate(0deg); }
       50% { filter: hue-rotate(10deg); }
@@ -186,7 +182,7 @@
       box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
       animation: bounce 2s infinite;
     }
-    
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
@@ -206,18 +202,18 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-    
+
     .chip:hover {
       transform: translateY(-3px) rotate(2deg);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       border-color: var(--pb-purple);
     }
-    
-    .chip i { 
-      color: var(--pb-teal); 
+
+    .chip i {
+      color: var(--pb-teal);
       font-size: 1.1rem;
     }
-    /* Buttons */
+
     .btn-primary{
       background: linear-gradient(135deg, var(--pb-purple), var(--pb-pink));
       border: none;
@@ -227,12 +223,12 @@
       box-shadow: 0 6px 20px rgba(107, 70, 193, 0.3);
       transition: all 0.3s ease;
     }
-    
+
     .btn-primary:hover{
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 10px 30px rgba(107, 70, 193, 0.4);
     }
-    
+
     .btn-outline-primary{
       border: 2px solid var(--pb-purple);
       color: var(--pb-purple);
@@ -240,15 +236,16 @@
       padding: 0.8rem 1.8rem;
       border-radius: 999px;
       transition: all 0.3s ease;
+      background: white;
     }
-    
+
     .btn-outline-primary:hover{
       background: var(--pb-purple);
+      color: white;
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 10px 30px rgba(107, 70, 193, 0.3);
     }
 
-    /* Cards */
     .card{
       border: none;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -257,28 +254,27 @@
       transition: all 0.4s ease;
       background: white;
     }
-    
+
     .card:hover {
       transform: translateY(-8px) rotate(-1deg);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .section{ padding: 4rem 0; }
-    
-    .section-title{ 
+
+    .section-title{
       letter-spacing: -0.02em;
       color: #1e1b4b;
       font-weight: 900;
     }
 
-    /* Fun category cards */
     .fun-card{
       position: relative;
       background: linear-gradient(135deg, white 0%, rgba(251, 191, 36, 0.1) 100%);
       border: 3px solid transparent;
       background-clip: padding-box;
     }
-    
+
     .fun-card::before{
       content: "";
       position: absolute;
@@ -292,11 +288,11 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
+
     .fun-card:hover::before {
       opacity: 1;
     }
-    
+
     .fun-icon{
       width: 60px;
       height: 60px;
@@ -309,13 +305,14 @@
       font-size: 1.8rem;
       box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3);
       transition: all 0.3s ease;
+      flex-shrink: 0;
     }
-    
-    .fun-card:hover .fun-icon {
+
+    .fun-card:hover .fun-icon,
+    .contact-item:hover .fun-icon {
       transform: rotate(10deg) scale(1.1);
     }
 
-    /* Gallery */
     .gallery img{
       width: 100%;
       height: 280px;
@@ -325,13 +322,12 @@
       transition: all 0.4s ease;
       border: 4px solid white;
     }
-    
+
     .gallery img:hover {
       transform: scale(1.05) rotate(-2deg);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
-    /* Nav links */
     .nav-link{
       position: relative;
       font-weight: 700;
@@ -339,12 +335,12 @@
       transition: all 0.3s ease;
       padding: 0.5rem 1rem !important;
     }
-    
+
     .nav-link:hover{
       color: var(--pb-purple);
       transform: translateY(-2px);
     }
-    
+
     .nav-link::after {
       content: '';
       position: absolute;
@@ -357,35 +353,33 @@
       transform: translateX(-50%);
       border-radius: 999px;
     }
-    
+
     .nav-link:hover::after {
       width: 80%;
     }
 
-    /* Footer */
     footer{
-  background: linear-gradient(
-    135deg,
-    rgba(107, 70, 193, 0.95) 0%,
-    rgba(236, 72, 153, 0.95) 50%,
-    rgba(251, 191, 36, 0.95) 100%
-  );
-  color: white;
-  padding: 2.5rem 0;
-  margin-top: 4rem;
-}
+      background: linear-gradient(
+        135deg,
+        rgba(107, 70, 193, 0.95) 0%,
+        rgba(236, 72, 153, 0.95) 50%,
+        rgba(251, 191, 36, 0.95) 100%
+      );
+      color: white;
+      padding: 2.5rem 0;
+      margin-top: 4rem;
+    }
 
-footer a{
-  color: white;
-  font-weight: 600;
-}
+    footer a{
+      color: white;
+      font-weight: 600;
+    }
 
-footer a:hover{
-  color: #fff;
-  text-decoration: underline;
-}
+    footer a:hover{
+      color: #fff;
+      text-decoration: underline;
+    }
 
-    /* Special stickers */
     .sticker {
       display: inline-block;
       padding: 0.6rem 1.2rem;
@@ -398,7 +392,7 @@ footer a:hover{
       font-size: 1.1rem;
       animation: wiggle 3s ease-in-out infinite;
     }
-    
+
     @keyframes wiggle {
       0%, 100% { transform: rotate(-2deg); }
       50% { transform: rotate(2deg); }
@@ -409,6 +403,38 @@ footer a:hover{
       line-height: 1.7;
     }
 
+    .wavy-section {
+      position: relative;
+      padding: 5rem 0;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(107, 70, 193, 0.1) 100%);
+    }
+
+    .contact-item{
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .form-control{
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      border: 2px solid rgba(107, 70, 193, 0.15);
+    }
+
+    .form-control:focus{
+      border-color: var(--pb-purple);
+      box-shadow: 0 0 0 0.2rem rgba(107, 70, 193, 0.15);
+    }
+
+    .form-label{
+      color: #1e1b4b;
+    }
+
+    .alert{
+      border: none;
+      border-radius: 16px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -416,17 +442,10 @@ footer a:hover{
         transition-duration: 0.01ms !important;
       }
     }
-
-    .wavy-section {
-      position: relative;
-      padding: 5rem 0;
-      background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(107, 70, 193, 0.1) 100%);
-    }
   </style>
 </head>
 <body>
-  <!-- Floating background paws -->
-  <div class="bg-paws">
+  <div class="bg-paws" aria-hidden="true">
     <div class="floating-paw">🐾</div>
     <div class="floating-paw">🐾</div>
     <div class="floating-paw">🐾</div>
@@ -437,7 +456,6 @@ footer a:hover{
   </div>
 
   <div class="content-wrapper">
-    <!-- NAV -->
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container py-2">
         <a class="navbar-brand brand-wrap" href="#">
@@ -451,7 +469,7 @@ footer a:hover{
           </div>
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -460,6 +478,7 @@ footer a:hover{
             <li class="nav-item"><a class="nav-link" href="#shop">🛍️ Shop</a></li>
             <li class="nav-item"><a class="nav-link" href="#raw">🥩 Raw Feeding</a></li>
             <li class="nav-item"><a class="nav-link" href="#delivery">🚚 Delivery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#order">🧾 Order</a></li>
             <li class="nav-item"><a class="nav-link" href="#gallery">📸 Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="#visit">📍 Visit</a></li>
           </ul>
@@ -474,14 +493,14 @@ footer a:hover{
         </div>
       </div>
     </nav>
-    <!-- HERO -->
+
     <header class="hero">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
             <div class="mb-4">
               <span class="badge-fun mb-3">
-                <i class="bi bi-geo-alt-fill"></i> Stapleford's Favourite Pet Shop
+                <i class="bi bi-geo-alt-fill"></i> Stapleford's Friendly Local Pet Shop
               </span>
             </div>
 
@@ -492,19 +511,20 @@ footer a:hover{
             </h1>
 
             <p class="lead mb-4" style="color: #3730a3;">
-              Your local independent pet shop where tails wag, whiskers twitch, and chaos reigns supreme! 
-              <strong>Treats, toys, food & fun</strong> — everything your furry overlords demand.
+              Friendly independent family-run pet shop in Stapleford stocking dog and cat food, raw food,
+              natural treats, toys, accessories and reptile food to order. Local advice, local service,
+              and a warm welcome every time.
             </p>
 
             <div class="d-flex flex-wrap gap-3 mb-4">
               <span class="chip">
-                <i class="bi bi-clock-fill"></i> Tue–Sat 10–4
+                <i class="bi bi-clock-fill"></i> Tue–Sat 09:30–16:30
               </span>
               <span class="chip">
-                <i class="bi bi-truck"></i> 5-mile delivery
+                <i class="bi bi-truck"></i> Local delivery
               </span>
               <span class="chip">
-                <i class="bi bi-bag-heart-fill"></i> Pick & Mix Treats!
+                <i class="bi bi-bag-heart-fill"></i> Pick & Mix Treats
               </span>
             </div>
 
@@ -512,19 +532,19 @@ footer a:hover{
               <a class="btn btn-primary btn-lg" href="#shop">
                 <i class="bi bi-basket-fill"></i> Explore Our Goodies
               </a>
-              <a class="btn btn-outline-primary btn-lg" href="#delivery">
-                <i class="bi bi-bag-check-fill"></i> Order Now
+              <a class="btn btn-outline-primary btn-lg" href="#order">
+                <i class="bi bi-bag-check-fill"></i> Order Enquiry
               </a>
             </div>
 
             <div class="sticker mb-3">
-              ⭐ Where Every Pet is the Boss! ⭐
+              ⭐ Independent. Friendly. Packed with pet goodies. ⭐
             </div>
 
             <div class="mt-4 d-flex flex-wrap gap-2">
-              <span class="chip">✅ Zero judgement zone</span>
-              <span class="chip">✅ Picky eaters? We got you</span>
-              <span class="chip">✅ Chaos management tools</span>
+              <span class="chip">✅ Friendly local advice</span>
+              <span class="chip">✅ Natural treats & raw</span>
+              <span class="chip">✅ Click & collect available</span>
             </div>
           </div>
 
@@ -536,7 +556,7 @@ footer a:hover{
         </div>
       </div>
     </header>
-    <!-- SHOP CATEGORIES -->
+
     <section id="shop" class="wavy-section">
       <div class="container">
         <div class="text-center mb-5">
@@ -544,7 +564,7 @@ footer a:hover{
             🎁 What's Inside The Box?
           </h2>
           <p class="lead text-muted">
-            Everything your pet needs (and some stuff they just really, really want)
+            Everyday essentials, natural treats and fun stuff for pets and their people.
           </p>
         </div>
 
@@ -556,7 +576,7 @@ footer a:hover{
                 <h3 class="h4 fw-bold mb-0">Dog Food 🦴</h3>
               </div>
               <p class="text-muted mb-0">
-                Dry, wet & raw options. From budget-friendly to "my dog eats better than me."
+                Dry, wet and raw food options for everyday feeding, sensitive tummies and picky eaters.
               </p>
             </div>
           </div>
@@ -568,7 +588,7 @@ footer a:hover{
                 <h3 class="h4 fw-bold mb-0">Cat Food 😺</h3>
               </div>
               <p class="text-muted mb-0">
-                For fussy royalty who will turn their nose up at anything less than perfect.
+                Tasty dry, wet and natural options for curious cats, fussy cats and absolutely spoiled cats.
               </p>
             </div>
           </div>
@@ -580,7 +600,7 @@ footer a:hover{
                 <h3 class="h4 fw-bold mb-0">Raw Feeding 🥩</h3>
               </div>
               <p class="text-muted mb-0">
-                No scary lectures. Just honest advice about natural feeding done your way.
+                Friendly guidance and practical help if you're new to raw or just looking for better options.
               </p>
             </div>
           </div>
@@ -589,10 +609,10 @@ footer a:hover{
             <div class="card h-100 p-4 fun-card">
               <div class="d-flex align-items-center gap-3 mb-3">
                 <div class="fun-icon"><i class="bi bi-bag-heart-fill"></i></div>
-                <h3 class="h4 fw-bold mb-0">Pick & Mix Bar 🍬</h3>
+                <h3 class="h4 fw-bold mb-0">Natural Treats 🍖</h3>
               </div>
               <p class="text-muted mb-0">
-                The sweetshop for pets! Grab a bag and fill it with their fave treats.
+                Pick & mix treats, chews and natural goodies for rewarding, training or just because.
               </p>
             </div>
           </div>
@@ -604,7 +624,7 @@ footer a:hover{
                 <h3 class="h4 fw-bold mb-0">Toys & Fun 🎾</h3>
               </div>
               <p class="text-muted mb-0">
-                Puzzle toys, squeakers, tuggers — basically everything to tire them out!
+                Balls, squeakers, tug toys and boredom-busters to keep tails wagging and paws busy.
               </p>
             </div>
           </div>
@@ -616,14 +636,14 @@ footer a:hover{
                 <h3 class="h4 fw-bold mb-0">Accessories ✨</h3>
               </div>
               <p class="text-muted mb-0">
-                Leads, collars, bowls, grooming stuff — all the "oh yeah, we need that!"
+                Leads, collars, bowls, grooming bits and everyday pet essentials, plus reptile food to order.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- RAW SECTION -->
+
     <section id="raw" class="section">
       <div class="container">
         <div class="row g-5 align-items-center">
@@ -631,14 +651,14 @@ footer a:hover{
             <div class="mb-3">
               <span class="sticker">🥩 Raw Feeding Made Simple</span>
             </div>
-            
+
             <h2 class="display-5 fw-black section-title mb-4">
               Curious About Raw?<br>We're Here to Help! 💪
             </h2>
-            
+
             <p class="lead" style="color: #3730a3;">
-              No internet drama. No "you're doing it wrong" vibes. Just friendly, 
-              practical advice to help you choose what works for YOUR pet.
+              No pressure and no lectures. Just friendly, practical advice to help you choose what works
+              for your pet and your routine.
             </p>
 
             <div class="row g-3 mt-4">
@@ -647,7 +667,7 @@ footer a:hover{
                   <div class="fw-bold fs-5 mb-2">
                     <i class="bi bi-lightning-charge-fill" style="color: var(--pb-orange);"></i> New to Raw?
                   </div>
-                  <div class="text-muted">Start small, keep it simple, build confidence at your own pace.</div>
+                  <div class="text-muted">Start simple, build confidence and go at a pace that suits you.</div>
                 </div>
               </div>
               <div class="col-md-6">
@@ -655,7 +675,7 @@ footer a:hover{
                   <div class="fw-bold fs-5 mb-2">
                     <i class="bi bi-heart-fill" style="color: var(--pb-pink);"></i> Cats Too!
                   </div>
-                  <div class="text-muted">We're not just a dog shop — your cat deserves the good stuff too!</div>
+                  <div class="text-muted">We can help with cat feeding too — not just dogs.</div>
                 </div>
               </div>
             </div>
@@ -670,22 +690,21 @@ footer a:hover{
       </div>
     </section>
 
-    <!-- DELIVERY / CLICK & COLLECT -->
     <section id="delivery" class="wavy-section">
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 order-lg-2">
             <div class="mb-3">
-              <span class="sticker">🚚 Emergency Treat Delivery!</span>
+              <span class="sticker">🚚 Local Delivery & Click & Collect</span>
             </div>
-            
+
             <h2 class="display-5 fw-black section-title mb-4">
-              Ran Out of Treats?<br>We've Got You! 🎯
+              Need Something Quickly?<br>We've Got You! 🎯
             </h2>
-            
+
             <p class="lead" style="color: #3730a3;">
-              Local delivery within 5 miles or pop in for click & collect. 
-              Because your pet's snack cupboard should never be empty!
+              Local delivery available in selected nearby areas, or message us for click & collect.
+              Quick, friendly and easy.
             </p>
 
             <div class="row g-3 mt-4">
@@ -694,7 +713,7 @@ footer a:hover{
                   <div class="fw-bold fs-5 mb-2">
                     <i class="bi bi-truck" style="color: var(--pb-orange);"></i> Local Delivery
                   </div>
-                  <div class="text-muted">Within 5 miles of Stapleford — because pets can't wait!</div>
+                  <div class="text-muted">Available in selected nearby postcodes — check below or message us.</div>
                 </div>
               </div>
               <div class="col-md-6">
@@ -702,32 +721,119 @@ footer a:hover{
                   <div class="fw-bold fs-5 mb-2">
                     <i class="bi bi-bag-check-fill" style="color: var(--pb-purple);"></i> Click & Collect
                   </div>
-                  <div class="text-muted">Message us, we'll have it ready. Simple!</div>
+                  <div class="text-muted">Message us and we'll have your order ready to collect.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-primary btn-lg" href="https://www.facebook.com/profile.php?id=61564215494747" target="_blank" rel="noopener">
+                <i class="bi bi-chat-dots-fill"></i> Message on Facebook
+              </a>
+              <a class="btn btn-outline-primary btn-lg" href="#visit">
+                <i class="bi bi-geo-alt-fill"></i> Find Us
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-lg-1">
+            <div class="card">
+              <img src="Pet16.jpg" alt="Treats, toys and essentials at The Pet Box" class="w-100" style="height:400px; object-fit:cover;">
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="d-flex flex-wrap gap-3 mt-4">
-          <a class="btn btn-primary btn-lg" href="https://www.facebook.com/profile.php?id=61564215494747" target="_blank" rel="noopener">
-            <i class="bi bi-chat-dots-fill"></i> Message to Order
-          </a>
-          <a class="btn btn-outline-primary btn-lg" href="#visit">
-            <i class="bi bi-geo-alt-fill"></i> Find Us
-          </a>
+    <section id="order" class="section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-black section-title mb-3">🧾 Quick Order Enquiry</h2>
+          <p class="lead text-muted">Check your postcode area, then copy your order message and send it to us on Facebook.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card p-4">
+              <form id="orderForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold" for="name">Your name</label>
+                    <input class="form-control" id="name" name="name" required placeholder="e.g. Sarah">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold" for="phone">Phone number</label>
+                    <input class="form-control" id="phone" name="phone" required placeholder="e.g. 07..." inputmode="tel">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-bold" for="postcode">Delivery postcode</label>
+                    <div class="input-group">
+                      <input class="form-control" id="postcode" required placeholder="e.g. NG9 7AD" autocomplete="postal-code">
+                      <button class="btn btn-outline-primary" type="button" id="checkBtn">
+                        <i class="bi bi-geo"></i> Check
+                      </button>
+                    </div>
+                    <div id="postcodeHelp" class="form-text">This is a simple nearby postcode check, not an exact mileage calculator.</div>
+                    <div id="checkResult" class="mt-2"></div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-bold" for="items">What do you need?</label>
+                    <textarea class="form-control" id="items" name="items" rows="4" required placeholder="e.g. 2x Pick & Mix bags, 1x Raw chicken mince, 1x cat treats..."></textarea>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-bold" for="notes">Notes (optional)</label>
+                    <input class="form-control" id="notes" name="notes" placeholder="Any allergies, substitutions, preferred time, etc.">
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-bold" for="orderPreview">Your message</label>
+                    <textarea class="form-control" id="orderPreview" rows="10" readonly></textarea>
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap gap-2 mt-2">
+                    <button class="btn btn-primary btn-lg" type="button" id="copyOrderBtn" disabled>
+                      <i class="bi bi-clipboard-check-fill"></i> Copy Order Message
+                    </button>
+                    <a class="btn btn-outline-primary btn-lg" id="facebookOrderBtn" href="https://www.facebook.com/profile.php?id=61564215494747" target="_blank" rel="noopener">
+                      <i class="bi bi-facebook"></i> Open Facebook
+                    </a>
+                    <a class="btn btn-outline-primary btn-lg" href="tel:+447763619790">
+                      <i class="bi bi-telephone-fill"></i> Or Call
+                    </a>
+                  </div>
+
+                  <div class="col-12">
+                    <small class="text-muted">
+                      Fill in the form, copy the message, then paste it into Facebook Messenger.
+                    </small>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card p-4 h-100" style="background: linear-gradient(135deg, rgba(107, 70, 193, 0.08), rgba(236, 72, 153, 0.08));">
+              <h3 class="h4 fw-bold mb-3">🚚 Delivery Info</h3>
+              <ul class="mb-0 text-muted">
+                <li>Local delivery in selected nearby postcode areas</li>
+                <li>Message to confirm delivery slot and total</li>
+                <li>Click & collect available</li>
+                <li>Reptile food can be ordered in for you</li>
+              </ul>
+              <hr class="my-4">
+              <div class="fw-bold">Want exact distance checking later?</div>
+              <div class="text-muted">You can upgrade this with a postcode API when you're ready.</div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="col-lg-6 order-lg-1">
-        <div class="card">
-          <img src="Pet16.jpg" alt="Treats, toys and essentials" class="w-100" style="height:400px; object-fit:cover;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- GALLERY -->
     <section id="gallery" class="section">
       <div class="container">
         <div class="text-center mb-5">
@@ -735,7 +841,7 @@ footer a:hover{
             📸 Real Shop. Real Stock. Real Tail Wags.
           </h2>
           <p class="lead text-muted">
-            No stock photos here — just our actual shop doing its thing!
+            No stock photos here — just our actual shop doing its thing.
           </p>
         </div>
 
@@ -747,7 +853,7 @@ footer a:hover{
             <img src="Pet3.jpg" alt="Dog and cat toys at The Pet Box">
           </div>
           <div class="col-md-6 col-lg-4">
-            <img src="Pet14.jpg" alt="Natural treats and chews">
+            <img src="Pet14.jpg" alt="Natural treats and chews at The Pet Box">
           </div>
         </div>
 
@@ -759,7 +865,6 @@ footer a:hover{
       </div>
     </section>
 
-    <!-- VISIT -->
     <section id="visit" class="wavy-section">
       <div class="container">
         <div class="row g-5">
@@ -767,19 +872,19 @@ footer a:hover{
             <div class="mb-3">
               <span class="sticker">📍 Come Say Hi!</span>
             </div>
-            
+
             <h2 class="display-5 fw-black section-title mb-4">
               Visit The Pet Box
             </h2>
-            
+
             <p class="lead" style="color: #3730a3;">
-              Pop in, have a browse, and ask us anything. We're friendly — promise! 🐾
+              Pop in, have a browse and ask us anything. Friendly service, helpful advice and a warm welcome.
             </p>
 
             <div class="card p-4 mb-4">
-              <div class="row g-3">
+              <div class="row g-4">
                 <div class="col-12">
-                  <div class="d-flex gap-3 align-items-start">
+                  <div class="contact-item">
                     <div class="fun-icon" style="width: 50px; height: 50px; font-size: 1.5rem;">
                       <i class="bi bi-geo-alt-fill"></i>
                     </div>
@@ -791,7 +896,7 @@ footer a:hover{
                 </div>
 
                 <div class="col-md-6">
-                  <div class="d-flex gap-3 align-items-start">
+                  <div class="contact-item">
                     <div class="fun-icon" style="width: 50px; height: 50px; font-size: 1.5rem;">
                       <i class="bi bi-telephone-fill"></i>
                     </div>
@@ -799,7 +904,7 @@ footer a:hover{
                       <div class="fw-bold mb-1">Phone</div>
                       <div class="text-muted">
                         <a href="tel:+447763619790" style="color: var(--pb-purple); text-decoration: none; font-weight: 700;">
-                          07763619790
+                          07763 619790
                         </a>
                       </div>
                     </div>
@@ -807,26 +912,26 @@ footer a:hover{
                 </div>
 
                 <div class="col-md-6">
-                  <div class="d-flex gap-3 align-items-start">
+                  <div class="contact-item">
                     <div class="fun-icon" style="width: 50px; height: 50px; font-size: 1.5rem;">
                       <i class="bi bi-clock-fill"></i>
                     </div>
                     <div>
                       <div class="fw-bold mb-1">Opening Hours</div>
-                      <div class="text-muted">Tue–Sat: 10:00–16:00</div>
-                      <small class="text-muted">Closed Sun & Mon</small>
+                      <div class="text-muted">Tue–Sat: 09:30–16:30</div>
+                      <small class="text-muted">Closed Sunday & Monday</small>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-12">
-                  <div class="d-flex gap-3 align-items-start">
+                  <div class="contact-item">
                     <div class="fun-icon" style="width: 50px; height: 50px; font-size: 1.5rem;">
                       <i class="bi bi-truck"></i>
                     </div>
                     <div>
                       <div class="fw-bold mb-1">Local Delivery</div>
-                      <div class="text-muted">Within 5 miles — message to order!</div>
+                      <div class="text-muted">Selected nearby areas — message to order or check below.</div>
                     </div>
                   </div>
                 </div>
@@ -836,10 +941,10 @@ footer a:hover{
 
               <div class="p-3 rounded-4" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.15));">
                 <div class="fw-bold fs-5 mb-2">
-                  <i class="bi bi-stars"></i> The Pet Box "Wag Guarantee"
+                  <i class="bi bi-stars"></i> The Pet Box Friendly Promise
                 </div>
                 <div class="text-muted">
-                  If your pet turns their nose up at something, message us — we'll help you find a better option next time. Zero judgement!
+                  Need help choosing the right food, treat or toy? Just ask — we’re always happy to help.
                 </div>
               </div>
             </div>
@@ -859,16 +964,17 @@ footer a:hover{
               <iframe
                 title="Map to The Pet Box Stapleford"
                 src="https://www.google.com/maps?q=102%20Derby%20Road%20Stapleford%20NG9%207AD&output=embed"
-                width="100%" height="500" style="border:0;" loading="lazy"></iframe>
+                width="100%"
+                height="500"
+                style="border:0;"
+                loading="lazy">
+              </iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-
-
-    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="row g-4 align-items-center">
@@ -880,9 +986,9 @@ footer a:hover{
                 <div style="opacity: 0.8;">For Dogs. For Cats. For Chaos.</div>
               </div>
             </div>
-            <p style="opacity: 0.8; margin: 0;">
-              Your local independent pet shop in Stapleford. Open Tue–Sat 10–4. 
-              Local delivery within 5 miles.
+            <p style="opacity: 0.85; margin: 0;">
+              Your local independent pet shop in Stapleford. Open Tue–Sat 09:30–16:30.
+              Local delivery and click & collect available.
             </p>
           </div>
 
@@ -891,6 +997,7 @@ footer a:hover{
               <a href="#shop" class="text-decoration-none">Shop</a>
               <a href="#raw" class="text-decoration-none">Raw Feeding</a>
               <a href="#delivery" class="text-decoration-none">Delivery</a>
+              <a href="#order" class="text-decoration-none">Order</a>
               <a href="#gallery" class="text-decoration-none">Gallery</a>
               <a href="#visit" class="text-decoration-none">Visit</a>
               <a href="https://www.facebook.com/profile.php?id=61564215494747" target="_blank" rel="noopener" class="text-decoration-none">
@@ -906,214 +1013,146 @@ footer a:hover{
           © <span id="year"></span> The Pet Box. All rights reserved.
         </div>
       </div>
-      <!-- ORDER + DELIVERY CHECK -->
-<section id="order" class="section">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-black section-title mb-3">🧾 Quick Order</h2>
-      <p class="lead text-muted">Check delivery area, then send your order in seconds.</p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-lg-7">
-        <div class="card p-4">
-          <form id="orderForm">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label fw-bold">Your name</label>
-                <input class="form-control" name="name" required placeholder="e.g. Sarah">
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label fw-bold">Phone number</label>
-                <input class="form-control" name="phone" required placeholder="e.g. 07..." inputmode="tel">
-              </div>
-
-              <div class="col-12">
-                <label class="form-label fw-bold">Delivery postcode (to check area)</label>
-                <div class="input-group">
-                  <input class="form-control" id="postcode" required placeholder="e.g. NG9 7AD" autocomplete="postal-code">
-                  <button class="btn btn-outline-primary" type="button" id="checkBtn">
-                    <i class="bi bi-geo"></i> Check
-                  </button>
-                </div>
-                <div id="postcodeHelp" class="form-text">We deliver within ~5 miles of Stapleford.</div>
-                <div id="checkResult" class="mt-2"></div>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label fw-bold">What do you need?</label>
-                <textarea class="form-control" name="items" rows="4" required
-                  placeholder="e.g. 2x Pick & Mix bags, 1x Raw chicken mince, 1x cat treats..."></textarea>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label fw-bold">Notes (optional)</label>
-                <input class="form-control" name="notes" placeholder="Any allergies, substitutions, preferred time, etc.">
-              </div>
-
-              <div class="col-12 d-flex flex-wrap gap-2 mt-2">
-                <a class="btn btn-primary btn-lg" id="sendOrderBtn" href="#" target="_blank" rel="noopener" aria-disabled="true">
-                  <i class="bi bi-chat-dots-fill"></i> Send Order via Facebook
-                </a>
-                <a class="btn btn-outline-primary btn-lg" href="tel:+447532766226">
-                  <i class="bi bi-telephone-fill"></i> Or Call
-                </a>
-              </div>
-
-              <div class="col-12">
-                <small class="text-muted">
-                  Tip: if you want this to email you automatically (without Facebook), we can add EmailJS later.
-                </small>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="col-lg-5">
-        <div class="card p-4 h-100" style="background: linear-gradient(135deg, rgba(107, 70, 193, 0.08), rgba(236, 72, 153, 0.08));">
-          <h3 class="h4 fw-bold mb-3">🚚 Delivery Rules</h3>
-          <ul class="mb-0 text-muted">
-            <li>Within ~5 miles of Stapleford</li>
-            <li>Message to confirm delivery slot</li>
-            <li>Click & Collect available</li>
-          </ul>
-          <hr class="my-4">
-          <div class="fw-bold">Want “proper” postcode distance checking?</div>
-          <div class="text-muted">We can upgrade this to calculate miles from your address using a postcode API.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // ✅ SIMPLE delivery check (no API): outward postcode whitelist.
-  // Edit this list to match your real delivery coverage.
-  const ALLOWED_OUTCODES = [
-    "NG9","NG10","NG16","NG8","NG7","NG6","NG5","NG2","NG1","DE7","DE72"
-  ];
-
-  const SHOP_NAME = "The Pet Box";
-  const FB_PAGE = "https://www.facebook.com/profile.php?id=61564215494747";
-
-  const postcodeEl = document.getElementById("postcode");
-  const checkBtn = document.getElementById("checkBtn");
-  const checkResult = document.getElementById("checkResult");
-  const sendOrderBtn = document.getElementById("sendOrderBtn");
-  const orderForm = document.getElementById("orderForm");
-
-  let deliveryOk = false;
-
-  // UK postcode validator (practical + solid for websites)
-  const UK_POSTCODE_REGEX = /^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/i;
-
-  function cleanPostcode(pc){
-    return (pc || "").toUpperCase().replace(/\s+/g, "").trim();
-  }
-
-  function formatPostcode(pc){
-    const cleaned = cleanPostcode(pc);
-    if (cleaned.length < 5) return "";
-    // insert a space before the last 3 chars: NG97AD -> NG9 7AD, NG101AA -> NG10 1AA
-    return cleaned.slice(0, -3) + " " + cleaned.slice(-3);
-  }
-
-  function outwardCode(pc){
-    const formatted = formatPostcode(pc);
-    const m = formatted.match(UK_POSTCODE_REGEX);
-    return m ? m[1].toUpperCase() : "";
-  }
-
-  function setCheckUI(ok, message){
-    deliveryOk = ok;
-    checkResult.innerHTML = ok
-      ? `<div class="alert alert-success mb-0"><i class="bi bi-check-circle-fill"></i> ${message}</div>`
-      : `<div class="alert alert-danger mb-0"><i class="bi bi-x-circle-fill"></i> ${message}</div>`;
-
-    sendOrderBtn.classList.toggle("disabled", !ok);
-    sendOrderBtn.setAttribute("aria-disabled", String(!ok));
-  }
-
-  function buildMessage(){
-    const data = new FormData(orderForm);
-    const name = data.get("name") || "";
-    const phone = data.get("phone") || "";
-    const items = data.get("items") || "";
-    const notes = data.get("notes") || "";
-    const postcode = formatPostcode(postcodeEl.value || "");
-
-    const msg =
-`Hi ${SHOP_NAME}! 🐾
-
-Name: ${name}
-Phone: ${phone}
-Postcode: ${postcode}
-
-Order:
-${items}
-
-Notes:
-${notes || "-"} 
-
-Can you confirm delivery + total please?`;
-
-    return msg;
-  }
-
-  function updateSendLink(){
-    const msg = buildMessage();
-    const shareUrl =
-      "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(FB_PAGE) +
-      "&quote=" + encodeURIComponent(msg);
-    sendOrderBtn.href = shareUrl;
-  }
-
-  checkBtn.addEventListener("click", () => {
-    const pcRaw = postcodeEl.value || "";
-    const pc = formatPostcode(pcRaw);
-
-    if(!pc){
-      setCheckUI(false, "Enter a valid postcode to check delivery.");
-      return;
-    }
-
-    // validate properly
-    if(!UK_POSTCODE_REGEX.test(pc)){
-      setCheckUI(false, "That postcode format looks off — double-check it (e.g. NG9 7AD).");
-      return;
-    }
-
-    const out = outwardCode(pc);
-
-    const ok = ALLOWED_OUTCODES.includes(out);
-    if(ok){
-      setCheckUI(true, `Yep — looks within our delivery area (${out}).`);
-      updateSendLink();
-    } else {
-      setCheckUI(false, `Sorry — ${out} looks outside our delivery area. Click & Collect is available though!`);
-      sendOrderBtn.href = FB_PAGE;
-    }
-  });
-
-  // Keep the message link updated as they type (only after delivery check passes)
-  orderForm.addEventListener("input", () => {
-    if(deliveryOk) updateSendLink();
-  });
-
-  // Optional: auto-format the postcode field as they leave it
-  postcodeEl.addEventListener("blur", () => {
-    const formatted = formatPostcode(postcodeEl.value);
-    if(formatted) postcodeEl.value = formatted;
-  });
-</script>
     </footer>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const ALLOWED_OUTCODES = [
+      "NG9", "NG10", "NG16", "NG8", "NG7", "DE7", "DE72"
+    ];
+
+    const SHOP_NAME = "The Pet Box";
+
+    const postcodeEl = document.getElementById("postcode");
+    const checkBtn = document.getElementById("checkBtn");
+    const checkResult = document.getElementById("checkResult");
+    const orderForm = document.getElementById("orderForm");
+    const orderPreview = document.getElementById("orderPreview");
+    const copyOrderBtn = document.getElementById("copyOrderBtn");
+
+    let deliveryChecked = false;
+    let deliveryOk = false;
+
+    const UK_POSTCODE_REGEX = /^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/i;
+
+    function cleanPostcode(pc){
+      return (pc || "").toUpperCase().replace(/\s+/g, "").trim();
+    }
+
+    function formatPostcode(pc){
+      const cleaned = cleanPostcode(pc);
+      if (cleaned.length < 5) return "";
+      return cleaned.slice(0, -3) + " " + cleaned.slice(-3);
+    }
+
+    function outwardCode(pc){
+      const formatted = formatPostcode(pc);
+      const match = formatted.match(UK_POSTCODE_REGEX);
+      return match ? match[1].toUpperCase() : "";
+    }
+
+    function setCheckUI(ok, message){
+      deliveryOk = ok;
+      deliveryChecked = true;
+
+      checkResult.innerHTML = ok
+        ? '<div class="alert alert-success mb-0"><i class="bi bi-check-circle-fill"></i> ' + message + '</div>'
+        : '<div class="alert alert-warning mb-0"><i class="bi bi-exclamation-triangle-fill"></i> ' + message + '</div>';
+
+      updatePreview();
+    }
+
+    function buildMessage(){
+      const data = new FormData(orderForm);
+      const name = (data.get("name") || "").trim();
+      const phone = (data.get("phone") || "").trim();
+      const items = (data.get("items") || "").trim();
+      const notes = (data.get("notes") || "").trim();
+      const postcode = formatPostcode(postcodeEl.value || "");
+
+      const deliveryLine = deliveryChecked
+        ? (deliveryOk ? "Delivery area check: Looks suitable for local delivery" : "Delivery area check: Please confirm delivery or arrange click & collect")
+        : "Delivery area check: Not checked yet";
+
+      return `Hi ${SHOP_NAME}! 🐾
+
+Name: ${name}
+Phone: ${phone}
+Postcode: ${postcode}
+
+${deliveryLine}
+
+Order:
+${items}
+
+Notes:
+${notes || "-"}
+
+Can you please confirm availability, delivery/collection and total?`;
+    }
+
+    function updatePreview(){
+      orderPreview.value = buildMessage();
+      const hasRequiredFields =
+        document.getElementById("name").value.trim() &&
+        document.getElementById("phone").value.trim() &&
+        document.getElementById("items").value.trim() &&
+        formatPostcode(postcodeEl.value);
+
+      copyOrderBtn.disabled = !hasRequiredFields;
+    }
+
+    checkBtn.addEventListener("click", () => {
+      const pcRaw = postcodeEl.value || "";
+      const pc = formatPostcode(pcRaw);
+
+      if (!pc) {
+        setCheckUI(false, "Enter a valid postcode to check your area.");
+        return;
+      }
+
+      if (!UK_POSTCODE_REGEX.test(pc)) {
+        setCheckUI(false, "That postcode format looks off — please check it, for example NG9 7AD.");
+        return;
+      }
+
+      postcodeEl.value = pc;
+
+      const out = outwardCode(pc);
+      const ok = ALLOWED_OUTCODES.includes(out);
+
+      if (ok) {
+        setCheckUI(true, "Good news — " + out + " looks like a nearby area for local delivery.");
+      } else {
+        setCheckUI(false, "This postcode may be outside our usual local delivery area, but click & collect is available and you can still message us to check.");
+      }
+    });
+
+    orderForm.addEventListener("input", updatePreview);
+
+    postcodeEl.addEventListener("blur", () => {
+      const formatted = formatPostcode(postcodeEl.value);
+      if (formatted) postcodeEl.value = formatted;
+      updatePreview();
+    });
+
+    copyOrderBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(orderPreview.value);
+        copyOrderBtn.innerHTML = '<i class="bi bi-check2"></i> Copied';
+        setTimeout(() => {
+          copyOrderBtn.innerHTML = '<i class="bi bi-clipboard-check-fill"></i> Copy Order Message';
+        }, 1800);
+      } catch (err) {
+        alert("Couldn't copy automatically. Please copy the message manually.");
+      }
+    });
+
+    updatePreview();
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
